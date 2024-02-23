@@ -9,6 +9,8 @@ import random
 import os
 import pygame
 
+
+
 def get_recipe(food):
     app_id = "cbeeced7"
     app_key = "fd27e5062ddf261cbf678d169d84a9dd"
@@ -33,15 +35,15 @@ def record(ask=False):
     with sr.Microphone() as source:
         if ask:
             speak(ask)
-        print("Mikrofon dinleniyor...")
+        print("Mikrofon dinleniyor..")
         audi = r.listen(source)
         voice = ''
         try:
             voice = r.recognize_google(audi, language='tr-TR')
         except sr.UnknownValueError:
-            speak('anlayamadım')
+            speak('anlayamadım.')
         except sr.RequestError:
-            speak('sistem çalışmıyor')
+            speak('sistem çalışmıyor.')
         return voice
 def get_weather(city):
     api_key = get_api_key("openweathermap_api_key")
